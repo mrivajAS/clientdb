@@ -24,6 +24,7 @@ import javax.xml.bind.annotation.XmlTransient;
 /**
  *
  * @author entrar
+ * Gestión de fabricantes
  */
 @Entity
 @Table(name = "MANUFACTURER")

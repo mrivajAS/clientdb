@@ -20,14 +20,16 @@
     </head>
     <body>
         <h1>Insertar nuevo cliente </h1>
+        
+        // Formulario para insertar nuevos clientes. El tratamiento de los datos
+        // (Comprobar que haya ID, por ejemplo), se hace en el InsertCustomer.java
         <form action="InsertCustomer">
             ID: <input type="text" name="Id" value="" /> <br>
               Nombre: <input type="text" name="Nombre" value="" /> <br>
               email:<input type="text" name="email" value="" /> <br>
               Cod.Postal: <input type="text" name="Zipcode" value="" /> <br>
               Descuento:<input type="text" name="Discount" value="" /> <br>
-              <input type="submit" name="" value="Insertar" /> <br>
-              
+              <input type="submit" name="" value="Insertar" /> <br>      
         </form>
                 
         <h1>Clientes de la base de datos:</h1>
@@ -41,7 +43,10 @@
         CustomerFacade clientesdb=(CustomerFacade) InitialContext.doLookup
         ("java:global/EnterpriseApplication1/EnterpriseApplication1-ejb/CustomerFacade");
 
+        // Reckgemos todos los clientes de la base de datos
         List<Customer> clientes=clientesdb.findAll();
+        
+        // Recorremos la lista de clientes y creamos la tabla
         for(Customer c: clientes) {
         %>
               <tr> 
@@ -52,6 +57,7 @@
                   <td><%=c.getDiscountCode().getDiscountCode()%></td>
                   <td><%=c.getCity()%></td>
                   <td> 
+                      <!--// Botón para eliminar el campo de la BD-->s
                       <form action="Remove">
                           <input type="hidden" name="id" value="<%=c.getCustomerId()%>">
                           <input type="submit" value="Remove">
@@ -63,7 +69,5 @@
         %>
           </tbody> 
      </table>
-
-
     </body>
 </html>

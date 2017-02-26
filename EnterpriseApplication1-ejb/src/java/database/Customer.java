@@ -11,7 +11,6 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -27,6 +26,7 @@ import javax.xml.bind.annotation.XmlTransient;
 /**
  *
  * @author entrar
+ * Clase que maneja a los clientes
  */
 @Entity
 @Table(name = "CUSTOMER")

@@ -25,19 +25,12 @@ import javax.servlet.http.HttpServletResponse;
 public class InsertCustomer extends HttpServlet {
     @EJB
     CustomerFacade insertar;
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
             if(request.getParameter("Id") != null)
             {
+               // Creamos un nuevo cliente, sólo si definimos una ID
                 Customer cliente=new Customer();
                 cliente.setCustomerId(Integer.parseInt(request.getParameter("Id")));
                 cliente.setName((request.getParameter("Nombre")));
@@ -47,8 +40,8 @@ public class InsertCustomer extends HttpServlet {
                 insertar.create(cliente);
             }
             
-            RequestDispatcher dispa=request.getRequestDispatcher("/Customers.jsp");
-            dispa.forward(request, response);
+            RequestDispatcher dispatcher=request.getRequestDispatcher("/Customers.jsp");
+            dispatcher.forward(request, response);
         }
     
 

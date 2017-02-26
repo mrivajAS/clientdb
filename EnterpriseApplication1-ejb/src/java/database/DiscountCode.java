@@ -25,6 +25,7 @@ import javax.xml.bind.annotation.XmlTransient;
 /**
  *
  * @author entrar
+ * Gestión de descuentos
  */
 @Entity
 @Table(name = "DISCOUNT_CODE")

@@ -40,11 +40,12 @@ public class Remove extends HttpServlet {
     {
         if(request.getParameter("id") != null)
             {
+                // Eliminamos el cliente de la BD
                 Customer cliente=new Customer();
                 cliente.setCustomerId(Integer.parseInt(request.getParameter("id")));
                 cliente.setZip(new MicroMarket("94401"));
                 cliente.setDiscountCode(new DiscountCode("L"));
-                        //remove.find(Integer.parseInt(request.getParameter("id")));
+                //remove.find(Integer.parseInt(request.getParameter("id")));
                 remove.remove(cliente);
             }
             
